@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        input[type="text"], input[type="email"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .back-button {
+            background-color: #008CBA;
+            margin-top: 10px;
+            text-align: center;
+            display: block;
+        }
+        .back-button:hover {
+            background-color: #007bb5;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Add New User</h1>
+        <form action="/users/new" method="POST">
+            <label>Name: <input type="text" name="name" required></label>
+            <label>Email: <input type="email" name="email" required></label>
+            <label>Age: <input type="number" name="age" required></label>
+            <button type="submit">Add User</button>
+        </form>
+
+        <!-- Back to User List Button -->
+        <a href="/users" class="back-button">
+            <button type="button">Back to User List</button>
+        </a>
+    </div>
+</body>
+</html>

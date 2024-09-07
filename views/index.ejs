@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .user-card {
+            background-color: white;
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .user-card h2 {
+            margin: 0 0 10px;
+            font-size: 24px;
+            color: #333;
+        }
+        .user-card p {
+            margin: 5px 0;
+            color: #555;
+        }
+        .buttons {
+            margin-top: 10px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        button.edit {
+            background-color: #008CBA;
+        }
+        button.delete {
+            background-color: #f44336;
+        }
+        button:hover {
+            transform: scale(1.1);
+            background-color: #333;
+        }
+        button:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User List</h1>
+
+        <!-- Create New User Button -->
+        <a href="/users/new">
+            <button>Create New</button>
+        </a>
+
+        <% for (let user of users) { %>
+            <div class="user-card">
+                <h2><%= user.name %></h2>
+                <p>Email: <%= user.email %></p>
+                <p>Age: <%= user.age %></p>
+
+                <div class="buttons">
+                    <!-- Edit Button -->
+                    <a href="/users/<%= user._id %>/edit">
+                        <button class="edit">Update</button>
+                    </a>
+
+                    <!-- Delete Button -->
+                    <form method="post" action="/users/<%= user._id %>?_method=Delete">
+                       
+                            <button class="delete">Delete</button>
+                    </form>
+                
+                </div>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>
